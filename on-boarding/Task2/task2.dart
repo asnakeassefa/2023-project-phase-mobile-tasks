@@ -73,6 +73,7 @@ class Task {
 class TaskManager {
   List<Task> Data = [];
 
+  // method to recive user data
     Task getData() {
     String? taskTitle;
     String? Discription;
@@ -108,13 +109,13 @@ class TaskManager {
     return value;
   }
 
-
-
+// adding task
   void addTask() {
     Task getTask = getData();
     Data.add(getTask);
   }
 
+// diplay all tasks
   void ViewTasks() async {
     for (final val in Data) {
       print("title: " + val.task!);
@@ -125,6 +126,7 @@ class TaskManager {
     }
   }
 
+// display complited tasks
   void complitedTasks() {
     var newData = Data.where((element) => element.Status == true).toList();
     for (final val in newData) {
@@ -135,6 +137,7 @@ class TaskManager {
     }
   }
 
+// display pendings
   void pendingTasks() {
     var newData = Data.where((element) => element.Status == false).toList();
     for (final val in newData) {
@@ -145,7 +148,7 @@ class TaskManager {
     }
   }
 
-
+// edit method
   void editTask() {
     print("please enter the title");
     String? name = stdin.readLineSync();
@@ -169,6 +172,7 @@ class TaskManager {
     }
   }
 
+// delete method
   void deleteTask() {
     String? taskTitle;
     print('Enter Task Title');
