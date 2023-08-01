@@ -64,7 +64,7 @@ class Task{
   String? Discription;
   DateTime DueDate;
   bool Status;
-  // constructor of the class
+  // constructor
   Task(this.task, this.Discription, this.DueDate, this.Status);
   
 }
