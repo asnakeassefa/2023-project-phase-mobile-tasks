@@ -1,78 +1,10 @@
 import 'dart:io';
 
-void main() {
-  bool end = true;
-  TaskManager taskManager = TaskManager();
-  while (end) {
-    print("please select the from the menus");
-    print("1.Add a new task");
-    print('2.view all tasks');
-    print("3.view only complited tasks");
-    print('4.view only pending tasks');
-    print('5. edit tasks');
-    print('6. Delete Task');
-    var selected = stdin.readLineSync();
+import 'Model/taskModel.dart';
 
-    switch (selected) {
-      case "1":
-        taskManager.addTask();
-        taskManager.ViewTasks();
-        print("if you want to leave press 1 else press any key");
-        String? val = stdin.readLineSync();
-        if (val == "1") end = false;
-        break;
-      case '2':
-        taskManager.ViewTasks();
-        print("if you want to leave press 1 else press any key");
-        String? val = stdin.readLineSync();
-        if (val == "1") end = false;
-        break;
-      case '3':
-        taskManager.complitedTasks();
-        print("if you want to leave press 1 else press any key");
-        String? val = stdin.readLineSync();
-        if (val == "1") end = false;
-        break;
-      case '4':
-        taskManager.pendingTasks();
-        print("if you want to leave press 1 else press any key");
-        String? val = stdin.readLineSync();
-        if (val == "1") end = false;
-        break;
-      case '5':
-        taskManager.editTask();
-        print("if you want to leave press 1 else press any key");
-        String? val = stdin.readLineSync();
-        if (val == "1") end = false;
-        break;
-      case '6':
-        taskManager.deleteTask();
-        print("if you want to leave press 1 else press any key");
-        String? val = stdin.readLineSync();
-        if (val == "1") end = false;
-        break;
-      default:
-        print('choise is not available');
-        print("if you want to leave press 1 else press any key");
-        String? val = stdin.readLineSync();
-        if (val == "1") end = false;
-    }
-  }
-}
-
-// task model
-class Task {
-  String? task;
-  String? Discription;
-  DateTime? DueDate;
-  bool Status;
-  // constructor
-  Task(this.task, this.Discription, this.DueDate, this.Status);
-}
 
 class TaskManager {
   List<Task> Data = [];
-
   // method to recive user data
     Task getData() {
     String? taskTitle;
