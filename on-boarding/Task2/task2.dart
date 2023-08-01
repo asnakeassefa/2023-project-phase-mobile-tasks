@@ -2,6 +2,7 @@ import 'dart:io';
 
 void main(){
   bool end = true;
+  TaskManager taskManager = TaskManager();
   while (end){
     print("please select the from the menus");
     print("1.Add a new task");
@@ -10,9 +11,8 @@ void main(){
     print('4.view only pending tasks');
     print('5. edit tasks');
     print('6. Delete Task');
-
     var selected = stdin.readLineSync();
-    TaskManager taskManager = TaskManager();
+    
     switch(selected){
       case "1":
         taskManager.addTask();
@@ -62,7 +62,7 @@ void main(){
 class Task{
   String? task;
   String? Discription;
-  DateTime DueDate;
+  String? DueDate;
   bool Status;
   // constructor
   Task(this.task, this.Discription, this.DueDate, this.Status);
@@ -70,24 +70,23 @@ class Task{
 }
 
 class TaskManager{
-  
   List<Task> Data = [];
 
   void addTask(){
 
     String? taskTitle;
     String? Discription;
-    String Date;
+    String? date;
     bool status;
 
     print('Enter Task Title');
     taskTitle = stdin.readLineSync();
     print('Enter your discription');
     Discription = stdin.readLineSync();
-    print('Enter due date in days');
-    taskTitle = stdin.readLineSync();
+    print('Enter due date in days: dd/mm/yy');
+    date = stdin.readLineSync();
 
-    var value = Task(taskTitle, Discription, DateTime.now(),false);
+    var value = Task(taskTitle, Discription, date,false);
 
     Data.add(value);
   }
@@ -97,8 +96,8 @@ class TaskManager{
       print("title: " + val.task!);
       print("Discription: " + val.Discription!);
       print("due date: "+ val.DueDate.toString());
-      print("is done: " + val.Status.toString());
-
+      print("is done: " + (val.Status? "complited":"pending"));
+      print("");
     }
   }
 
@@ -108,7 +107,7 @@ class TaskManager{
       print("title: " + val.task!);
       print("Discription: " + val.Discription!);
       print("due date: "+ val.DueDate.toString());
-      print("is done: " + val.Status.toString());
+      print("is done: " + (val.Status? "complited":"pending"));
 
     }
   }
@@ -119,41 +118,51 @@ class TaskManager{
       print("title: " + val.task!);
       print("Discription: " + val.Discription!);
       print("due date: "+ val.DueDate.toString());
-      print("is done: " + val.Status.toString());
+      print("is done: " + (val.Status? "complited":"pending"));
 
     }
   }
 
   void editTask(){
+    print("please enter the title");
     String? name = stdin.readLineSync();
     int index = Data.indexWhere((element) => element.task == name);
+    if(index >= 0){
 
     String? taskTitle;
     String? Discription;
-    String Date;
+    String? date;
     String? status;
 
     print('Enter Task Title');
     taskTitle = stdin.readLineSync();
     print('Enter your discription');
     Discription = stdin.readLineSync();
-    print('Enter due date in days');
-    taskTitle = stdin.readLineSync();
+    print('Enter due date in days: dd/mm/yy');
+    date = stdin.readLineSync();
     print("if the task is done press 1");
     status = stdin.readLineSync();
-
     bool state = false;
 
     if (status == "1"){
       state = true;
     }
+    
     // editing the task
     Data[index].task = taskTitle;
     Data[index].Discription = Discription;
-    Data[index].DueDate = DateTime.now();
+    Data[index].DueDate = date;
     Data[index].Status = state;
+    
+    print("title: " + Data[index].task!);
+    print("Discription: " + Data[index].Discription!);
+    print("due date: "+ Data[index].DueDate.toString());
+    print("is done: " + (Data[index].Status? "complited":"pending"));
+    // end of if
+    }else{
+      print('task is not available');
+    }
 
-    print(Data[index]);
   }
 
   void deleteTask(){
