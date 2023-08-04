@@ -10,12 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'circular counter',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'circular counter'),
     );
   }
 }
@@ -74,17 +75,20 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           //incriment button
           FloatingActionButton(
             onPressed: incrementCounter,
             tooltip: 'Increment',
+            backgroundColor: Colors.green,
             child: const Icon(Icons.add),
           ),
 
           // decriment button
           FloatingActionButton(
             onPressed: decrimentCounter,
+            backgroundColor: Colors.red,
             tooltip: 'decrement',
             child: const Icon(Icons.minimize_outlined),
           ),
