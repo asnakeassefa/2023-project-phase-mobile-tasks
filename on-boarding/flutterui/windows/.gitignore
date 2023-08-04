@@ -1,0 +1,17 @@
+flutter/ephemeral/
+
+#VisualStudiouser-specificfiles.
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+#VisualStudiobuild-relatedfiles.
+x64/
+x86/
+
+#VisualStudiocachefiles
+#filesendingin.cachecanbeignored
+*.[Cc]ache
+#butkeeptrackofdirectoriesendingin.cache
+!*.[Cc]ache/
