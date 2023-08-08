@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterui/Models/TasksModel.dart';
+import 'package:flutterui/screens/createTask.dart';
 import 'package:intl/intl.dart';
 
 class ListPage extends StatelessWidget {
@@ -7,6 +8,7 @@ class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List tasks = <TaskModel>[
+
       TaskModel(
           taskName: "UI/UX team",
           dueDate: DateTime.now(),
@@ -48,7 +50,10 @@ class ListPage extends StatelessWidget {
           dueDate: DateTime.now(),
           description: "hello"),
     ];
+    
+    // date formater
     final dateFormat = DateFormat("MMM. d, y");
+
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
@@ -82,8 +87,7 @@ class ListPage extends StatelessWidget {
                 ),
 
                 //Task List buider
-                SizedBox(
-                  height: 370,
+                Expanded(
                   child: ListView.builder(
                     itemCount: tasks.length,
                     itemBuilder: (context, index) {
@@ -128,7 +132,7 @@ class ListPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (BuildContext context) {
-                        return const ListPage();
+                        return const CreateTask();
                       },
                     ),
                   ),
