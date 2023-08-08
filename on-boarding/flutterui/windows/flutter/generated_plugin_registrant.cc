@@ -1,11 +1,11 @@
 //
-//Generatedfile.Donotedit.
+//  Generated file. Do not edit.
 //
 
-//clang-formatoff
+// clang-format off
 
-#include"generated_plugin_registrant.h"
+#include "generated_plugin_registrant.h"
 
 
-voidRegisterPlugins(flutter::PluginRegistry*registry){
+void RegisterPlugins(flutter::PluginRegistry* registry) {
 }

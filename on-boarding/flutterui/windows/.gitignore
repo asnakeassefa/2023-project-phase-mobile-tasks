@@ -1,17 +1,17 @@
 flutter/ephemeral/
 
-#VisualStudiouser-specificfiles.
+# Visual Studio user-specific files.
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
 
-#VisualStudiobuild-relatedfiles.
+# Visual Studio build-related files.
 x64/
 x86/
 
-#VisualStudiocachefiles
-#filesendingin.cachecanbeignored
+# Visual Studio cache files
+# files ending in .cache can be ignored
 *.[Cc]ache
-#butkeeptrackofdirectoriesendingin.cache
+# but keep track of directories ending in .cache
 !*.[Cc]ache/

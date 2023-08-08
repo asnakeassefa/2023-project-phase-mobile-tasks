@@ -1,12 +1,12 @@
-importFlutterMacOS
-importCocoa
-importXCTest
+import FlutterMacOS
+import Cocoa
+import XCTest
 
-classRunnerTests:XCTestCase{
+class RunnerTests: XCTestCase {
 
-functestExample(){
-//IfyouaddcodetotheRunnerapplication,consideraddingtestshere.
-//Seehttps://developer.apple.com/documentation/xctestformoreinformationaboutusingXCTest.
-}
+  func testExample() {
+    // If you add code to the Runner application, consider adding tests here.
+    // See https://developer.apple.com/documentation/xctest for more information about using XCTest.
+  }
 
 }

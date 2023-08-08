@@ -1,16 +1,16 @@
 //{{NO_DEPENDENCIES}}
-//MicrosoftVisualC++generatedincludefile.
-//UsedbyRunner.rc
+// Microsoft Visual C++ generated include file.
+// Used by Runner.rc
 //
-#defineIDI_APP_ICON101
+#define IDI_APP_ICON                    101
 
-//Nextdefaultvaluesfornewobjects
+// Next default values for new objects
 //
-#ifdefAPSTUDIO_INVOKED
-#ifndefAPSTUDIO_READONLY_SYMBOLS
-#define_APS_NEXT_RESOURCE_VALUE102
-#define_APS_NEXT_COMMAND_VALUE40001
-#define_APS_NEXT_CONTROL_VALUE1001
-#define_APS_NEXT_SYMED_VALUE101
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        102
+#define _APS_NEXT_COMMAND_VALUE         40001
+#define _APS_NEXT_CONTROL_VALUE         1001
+#define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
