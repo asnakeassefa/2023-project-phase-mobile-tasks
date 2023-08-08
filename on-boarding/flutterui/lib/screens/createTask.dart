@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class CreateTask extends StatelessWidget {
+class CreateTask extends StatefulWidget {
   const CreateTask({super.key});
 
   @override
+  State<CreateTask> createState() => _CreateTaskState();
+}
+
+class _CreateTaskState extends State<CreateTask> {
+    static final dateFormat = DateFormat("MMM. d, y");
+
+    String dueDate = dateFormat.format(DateTime.now());
+
+    void updateTheDate(date) {
+      setState(() {
+        dueDate = date;
+      });
+    }
+  @override
   Widget build(BuildContext context) {
+
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -100,15 +117,30 @@ class CreateTask extends StatelessWidget {
                             ],
                           ),
                           height: 60,
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 15),
-                            child: Center(
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  hintText: "Write title here",
-                                  border: InputBorder.none,
-                                ),
-                              ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal:20.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(dueDate),
+                                IconButton(
+                                  onPressed: () async {
+                                    DateTime? pickdate = await showDatePicker(
+                                      context: context,
+                                      initialDate: DateTime.now(),
+                                      firstDate: DateTime(2000),
+                                      lastDate: DateTime(2100),
+                                    );
+                                    if (pickdate != null) {
+                                      updateTheDate(dateFormat.format(pickdate));
+                                    }
+                                  },
+                                  icon: const Icon(
+                                    Icons.calendar_month,
+                                    color: Color(0xffEE6F57),
+                                  ),
+                                )
+                              ],
                             ),
                           ),
                         ),
@@ -159,13 +191,14 @@ class CreateTask extends StatelessWidget {
 
                     // Add task button
                     GestureDetector(
-                      onTap: (){},
+                      onTap: () {},
                       child: Container(
                         height: 50,
                         margin: const EdgeInsets.symmetric(horizontal: 70),
                         decoration: const BoxDecoration(
                             color: Color(0xffEE6757),
-                            borderRadius: BorderRadius.all(Radius.circular(50))),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(50))),
                         child: const Center(
                           child: Text(
                             'Add Task',

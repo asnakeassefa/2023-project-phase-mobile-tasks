@@ -8,7 +8,6 @@ class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List tasks = <TaskModel>[
-
       TaskModel(
           taskName: "UI/UX team",
           dueDate: DateTime.now(),
@@ -50,7 +49,7 @@ class ListPage extends StatelessWidget {
           dueDate: DateTime.now(),
           description: "hello"),
     ];
-    
+
     // date formater
     final dateFormat = DateFormat("MMM. d, y");
 
@@ -92,34 +91,41 @@ class ListPage extends StatelessWidget {
                     itemCount: tasks.length,
                     itemBuilder: (context, index) {
                       final item = tasks[index];
-                      return ListTile(
-                        leading: Text(
-                          item.taskName[0],
-                          style: const TextStyle(fontSize: 25),
+                      return Card(
+                        surfaceTintColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
                         ),
-                        title: Text(item.taskName),
-                        subtitle: Text(item.description),
-                        trailing: SizedBox(
-                          width: 180,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(dateFormat.format(DateTime.now())),
-                              const SizedBox(width: 10),
-                              Container(
-                                width: 2,
-                                decoration: const BoxDecoration(
-                                  color: Color(0xffEE6F57),
+                        elevation: 10,
+                        child: ListTile(
+                          leading: Text(
+                            item.taskName[0],
+                            style: const TextStyle(fontSize: 25),
+                          ),
+                          title: Text(item.taskName),
+                          subtitle: Text(item.description),
+                          trailing: SizedBox(
+                            width: 180,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(dateFormat.format(DateTime.now())),
+                                const SizedBox(width: 10),
+                                Container(
+                                  width: 2,
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xffEE6F57),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       );
                     },
                   ),
                 ),
-
+                const SizedBox(height: 20),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(256, 39),
@@ -141,6 +147,7 @@ class ListPage extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
+                const SizedBox(height: 20),
               ],
             ),
           )),
