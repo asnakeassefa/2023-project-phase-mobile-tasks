@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class CreateTask extends StatelessWidget {
+  const CreateTask({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +13,21 @@ class MyWidget extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back_ios, color: Colors.red),
           ),
-          title: const Center(child: Text("Todo list")),
           actions: [
             IconButton(
                 onPressed: () => {}, icon: const Icon(Icons.more_vert_outlined))
           ],
         ),
+        bottomNavigationBar: const BottomAppBar(
+          child: Center(
+            child: Text(
+              'Create new task',
+              style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+
+        // body part
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -34,8 +43,13 @@ class MyWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              // Tasks List using List builder
-              ListView(),
+
+              // Text fields for the input
+              ListView(
+                
+              ),
+
+              // Add task button
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(256, 39),
