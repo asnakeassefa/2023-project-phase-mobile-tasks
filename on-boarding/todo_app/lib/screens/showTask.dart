@@ -76,7 +76,7 @@ class ShowDetail extends StatelessWidget {
                       height: 160,
                       child: Expanded(
                         child: Text(
-                          'valuevaljdlajfaldjksfa;lsdfjkas;ldfjas;ldfjas;ldfjsd;lfjsdlfjsdlfjas;ldfjasdfsdfasdf',
+                          'How much wood would a woodchuck chuck if a woodchuck could chuck wood?',
                           softWrap: true,
                         ),
                       ),
