@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterui/Models/TasksModel.dart';
-import 'package:flutterui/screens/createTask.dart';
+import 'package:todo_app/Models/TasksModel.dart';
+import 'package:todo_app/screens/createTask.dart';
 import 'package:intl/intl.dart';
 
 class ListPage extends StatelessWidget {

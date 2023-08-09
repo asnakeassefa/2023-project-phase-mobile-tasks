@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterui/screens/welcome.dart';
+import 'package:todo_app/screens/welcome.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterui/screens/ListScreen.dart';
+import 'package:todo_app/screens/ListScreen.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
