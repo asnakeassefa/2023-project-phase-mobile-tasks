@@ -8,7 +8,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
+      
       routes: {"/tasklist": (context)=>const ListPage()},
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );

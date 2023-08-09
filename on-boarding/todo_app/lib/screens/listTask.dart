@@ -12,8 +12,24 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-
   static List tasks = <TaskModel>[];
+
+  Route createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const CreateTask(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.0, 1.0);
+        const end = Offset.zero;
+        final tween = Tween(begin: begin, end: end);
+        final offsetAnimation = animation.drive(tween);
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child,
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,16 +131,12 @@ class _ListPageState extends State<ListPage> {
                     ),
                     backgroundColor: const Color(0xffEE6F57),
                   ),
-                  onPressed: () async{
+                  onPressed: () async {
                     await Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return const CreateTask();
-                        },
-                      ),
+                      createRoute(),
                     ).then((value) {
-                      if (value != null){
+                      if (value != null) {
                         setState(() {
                           tasks.add(value);
                         });
