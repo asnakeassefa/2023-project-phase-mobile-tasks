@@ -20,8 +20,6 @@ class _CreateTaskState extends State<CreateTask> {
     }
   @override
   Widget build(BuildContext context) {
-
-
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/Models/TasksModel.dart';
 import 'package:todo_app/screens/createTask.dart';
 import 'package:intl/intl.dart';
+import 'package:todo_app/screens/showTask.dart';
 
 class ListPage extends StatelessWidget {
   const ListPage({super.key});
@@ -98,6 +99,16 @@ class ListPage extends StatelessWidget {
                         ),
                         elevation: 10,
                         child: ListTile(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return const ShowDetail();
+                                },
+                              ),
+                            );
+                          },
                           leading: Text(
                             item.taskName[0],
                             style: const TextStyle(fontSize: 25),
