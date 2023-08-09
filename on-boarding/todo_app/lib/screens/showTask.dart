@@ -28,7 +28,6 @@ class ShowDetail extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children: const [
-
                     // Title
                     Text(
                       "Title",
@@ -46,21 +45,7 @@ class ShowDetail extends StatelessWidget {
                       ),
                     ),
 
-                    // dueDate
-                    SizedBox(height: 20),
-                    Text(
-                      "Due Date",
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                    CustomCard(
-                        height: 60,
-                        child: Row(
-                          children: [
-                            Text("April. 13, 2023"),
-                          ],
-                        )),
+                    // description
                     SizedBox(
                       height: 20,
                     ),
@@ -71,14 +56,32 @@ class ShowDetail extends StatelessWidget {
                       ),
                     ),
 
-                    // Description
                     CustomCard(
-                      height: 160,
+                      height: 140,
                       child: Expanded(
-                        child: Text(
-                          'How much wood would a woodchuck chuck if a woodchuck could chuck wood?',
-                          softWrap: true,
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            'How much wood would a woodchuck chuck if a woodchuck could chuck wood?',
+                            softWrap: true,
+                          ),
                         ),
+                      ),
+                    ),
+                    // dead line
+                    SizedBox(height: 20),
+                    Text(
+                      "Deadline",
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                    CustomCard(
+                      height: 60,
+                      child: Row(
+                        children: [
+                          Text("April. 13, 2023"),
+                        ],
                       ),
                     ),
                   ],
