@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ShowDetail extends StatelessWidget {
-  const ShowDetail({super.key});
+  final String title;
+  final String description;
+  final String dueDate;
+  const ShowDetail(
+      {super.key,
+      required this.title,
+      required this.description,
+      required this.dueDate});
 
   @override
   Widget build(BuildContext context) {
@@ -27,29 +34,27 @@ class ShowDetail extends StatelessWidget {
               const SizedBox(height: 30),
               Expanded(
                 child: ListView(
-                  children: const [
+                  children: [
                     // Title
-                    Text(
+                    const Text(
                       "Title",
                       style: TextStyle(
                         fontSize: 18,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     CustomCard(
                       height: 60,
                       child: Row(
                         children: [
-                          Text("The title"),
+                          Text(title),
                         ],
                       ),
                     ),
 
                     // description
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       "Description",
                       style: TextStyle(
                         fontSize: 18,
@@ -60,17 +65,17 @@ class ShowDetail extends StatelessWidget {
                       height: 140,
                       child: Expanded(
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            'How much wood would a woodchuck chuck if a woodchuck could chuck wood?',
+                            description,
                             softWrap: true,
                           ),
                         ),
                       ),
                     ),
                     // dead line
-                    SizedBox(height: 20),
-                    Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       "Deadline",
                       style: TextStyle(
                         fontSize: 18,
@@ -80,7 +85,7 @@ class ShowDetail extends StatelessWidget {
                       height: 60,
                       child: Row(
                         children: [
-                          Text("April. 13, 2023"),
+                          Text(dueDate),
                         ],
                       ),
                     ),

@@ -1,6 +1,6 @@
 class TaskModel {
   final String taskName;
-  final DateTime dueDate;
+  final String dueDate;
   final String description;
 
   const TaskModel(

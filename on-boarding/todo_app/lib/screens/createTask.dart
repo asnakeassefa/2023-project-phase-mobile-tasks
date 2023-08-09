@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../Models/TasksModel.dart';
+
 class CreateTask extends StatefulWidget {
   const CreateTask({super.key});
 
@@ -9,15 +11,19 @@ class CreateTask extends StatefulWidget {
 }
 
 class _CreateTaskState extends State<CreateTask> {
-    static final dateFormat = DateFormat("MMM. d, y");
+  static final dateFormat = DateFormat("MMM. d, y");
 
-    String dueDate = dateFormat.format(DateTime.now());
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
 
-    void updateTheDate(date) {
-      setState(() {
-        dueDate = date;
-      });
-    }
+  String dueDate = dateFormat.format(DateTime.now());
+
+  void updateTheDate(date) {
+    setState(() {
+      dueDate = date;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -81,11 +87,12 @@ class _CreateTaskState extends State<CreateTask> {
                                 BoxShadow(blurRadius: 5, color: Colors.grey),
                               ]),
                           height: 60,
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 15),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
                             child: Center(
                               child: TextField(
-                                decoration: InputDecoration(
+                                controller: titleController,
+                                decoration: const InputDecoration(
                                   hintText: "Write title here",
                                   border: InputBorder.none,
                                 ),
@@ -116,7 +123,8 @@ class _CreateTaskState extends State<CreateTask> {
                           ),
                           height: 60,
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal:20.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -130,7 +138,8 @@ class _CreateTaskState extends State<CreateTask> {
                                       lastDate: DateTime(2100),
                                     );
                                     if (pickdate != null) {
-                                      updateTheDate(dateFormat.format(pickdate));
+                                      updateTheDate(
+                                          dateFormat.format(pickdate));
                                     }
                                   },
                                   icon: const Icon(
@@ -167,11 +176,12 @@ class _CreateTaskState extends State<CreateTask> {
                             ],
                           ),
                           height: 150,
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 15),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
                             child: TextField(
+                              controller: descriptionController,
                               maxLines: null,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 hintText: "description",
                                 border: InputBorder.none,
                               ),
@@ -189,7 +199,20 @@ class _CreateTaskState extends State<CreateTask> {
 
                     // Add task button
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        if (titleController.text == "" ||
+                            descriptionController.text == "") {
+                        } else {
+                          Navigator.pop(
+                            context,
+                            TaskModel(
+                              taskName: titleController.text,
+                              description: descriptionController.text,
+                              dueDate: dueDate,
+                            ),
+                          );
+                        }
+                      },
                       child: Container(
                         height: 50,
                         margin: const EdgeInsets.symmetric(horizontal: 70),

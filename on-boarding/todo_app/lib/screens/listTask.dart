@@ -4,53 +4,19 @@ import 'package:todo_app/screens/createTask.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/screens/showDetails.dart';
 
-class ListPage extends StatelessWidget {
+class ListPage extends StatefulWidget {
   const ListPage({super.key});
+
+  @override
+  State<ListPage> createState() => _ListPageState();
+}
+
+class _ListPageState extends State<ListPage> {
+
+  static List tasks = <TaskModel>[];
+
   @override
   Widget build(BuildContext context) {
-    List tasks = <TaskModel>[
-      TaskModel(
-          taskName: "UI/UX team",
-          dueDate: DateTime.now(),
-          description: "hello"),
-      TaskModel(
-          taskName: "UI/UX team",
-          dueDate: DateTime.now(),
-          description: "hello"),
-      TaskModel(
-          taskName: "UI/UX team",
-          dueDate: DateTime.now(),
-          description: "hello"),
-      TaskModel(
-          taskName: "UI/UX team",
-          dueDate: DateTime.now(),
-          description: "hello"),
-      TaskModel(
-          taskName: "UI/UX team",
-          dueDate: DateTime.now(),
-          description: "hello"),
-      TaskModel(
-          taskName: "UI/UX team",
-          dueDate: DateTime.now(),
-          description: "hello"),
-      TaskModel(
-          taskName: "UI/UX team",
-          dueDate: DateTime.now(),
-          description: "hello"),
-      TaskModel(
-          taskName: "UI/UX team",
-          dueDate: DateTime.now(),
-          description: "hello"),
-      TaskModel(
-          taskName: "UI/UX team",
-          dueDate: DateTime.now(),
-          description: "hello"),
-      TaskModel(
-          taskName: "UI/UX team",
-          dueDate: DateTime.now(),
-          description: "hello"),
-    ];
-
     // date formater
     final dateFormat = DateFormat("MMM. d, y");
 
@@ -104,7 +70,11 @@ class ListPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
-                                  return const ShowDetail();
+                                  return ShowDetail(
+                                    title: item.taskName,
+                                    description: item.description,
+                                    dueDate: dateFormat.format(DateTime.now()),
+                                  );
                                 },
                               ),
                             );
@@ -120,7 +90,7 @@ class ListPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text(dateFormat.format(DateTime.now())),
+                                Text(item.dueDate),
                                 const SizedBox(width: 10),
                                 Container(
                                   width: 2,
@@ -145,14 +115,22 @@ class ListPage extends StatelessWidget {
                     ),
                     backgroundColor: const Color(0xffEE6F57),
                   ),
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const CreateTask();
-                      },
-                    ),
-                  ),
+                  onPressed: () async{
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const CreateTask();
+                        },
+                      ),
+                    ).then((value) {
+                      if (value != null){
+                        setState(() {
+                          tasks.add(value);
+                        });
+                      }
+                    });
+                  },
                   child: const Text(
                     "create Task",
                     style: TextStyle(color: Colors.white),

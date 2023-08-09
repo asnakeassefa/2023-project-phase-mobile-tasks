@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/screens/listTask.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
