@@ -1,16 +1,8 @@
-# flutterui
+# todo_app
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Navigation process:
+1. click the get started button on welcome screen and it uses the named route to navigate
+2. press The create task button to create the task and it navigates you to the create task screen and uses navigator to navigate.
+3. after submiting title , description and pick the date press add button then it will pop back to the task_list screen with the data you gave.
+4. the data will be displayed.
+5. press any of the task form the task list and it will send the data for the next screen and the next screen displays it.
