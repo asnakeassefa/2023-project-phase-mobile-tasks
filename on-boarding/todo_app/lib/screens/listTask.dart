@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/Models/TasksModel.dart';
 import 'package:todo_app/screens/createTask.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_app/screens/showTask.dart';
+import 'package:todo_app/screens/showDetails.dart';
 
 class ListPage extends StatelessWidget {
   const ListPage({super.key});

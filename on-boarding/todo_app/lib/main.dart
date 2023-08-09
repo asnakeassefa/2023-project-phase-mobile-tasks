@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/screens/listTask.dart';
 import 'package:todo_app/screens/welcome.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
+      routes: {"/tasklist": (context)=>const ListPage()},
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
