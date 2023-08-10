@@ -142,6 +142,7 @@ class _CreateTaskState extends State<CreateTask> {
                                           dateFormat.format(pickdate));
                                     }
                                   },
+
                                   icon: const Icon(
                                     Icons.calendar_month,
                                     color: Color(0xffEE6F57),

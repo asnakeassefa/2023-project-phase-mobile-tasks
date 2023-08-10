@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Welcome extends StatelessWidget {
-  const Welcome({super.key});
+class Onbording extends StatelessWidget {
+  const Onbording({super.key});
 
   @override
   Widget build(BuildContext context) {
