@@ -13,7 +13,7 @@ class ListPage extends StatefulWidget {
 
 class _ListPageState extends State<ListPage> {
   static List tasks = <TaskModel>[];
-  
+
 // animation route
   Route createRoute() {
     return PageRouteBuilder(
