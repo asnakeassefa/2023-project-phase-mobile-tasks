@@ -1,16 +1,27 @@
-# todo_app_with_clean_arch
+# My Todo flutter project
+It is a regular todo app that helps you to manage your tasks,
+create, edit, list, are some functionalities you can get in this app.
 
-A new Flutter project.
+## Installations
+you can install it only in android and ios phones.
 
-## Getting Started
+## usage
+create task: when you click the create task button you navigate to create task page and you there are text fields fill all text fields and you can press 'Add Task' button the it will directly lead you to list page and display you task there.
 
-This project is a starting point for a Flutter application.
+show Detail: press the task and it will show you the detail
 
-A few resources to get you started if this is your first Flutter project:
+edit task: after getting to the details page there vertical 3 dots in the app bar and when you click that it will lead you to the edits page.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Architecture
+This project follows the Clean Architecture principles:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Domain layer
+This layer is the inner most layer and abstract different implementation there.
+it does have usecase and entity there.
+it handles the buisness logic of the app.
+ 
+### Data layer
+The data layer handles the data retrival and storage
+
+### presentaion layer
+The presentation layer hadles the user interface and user interactions
