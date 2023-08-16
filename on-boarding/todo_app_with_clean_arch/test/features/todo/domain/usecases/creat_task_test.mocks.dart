@@ -8,7 +8,7 @@ import 'dart:async' as _i4;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:todo_app_with_clean_arch/core/error/failure.dart' as _i5;
-import 'package:todo_app_with_clean_arch/features/todo/domain/entities/task.dart'
+import 'package:todo_app_with_clean_arch/features/todo/domain/entities/task_entity.dart'
     as _i6;
 import 'package:todo_app_with_clean_arch/features/todo/domain/repositories/task_repository.dart'
     as _i3;

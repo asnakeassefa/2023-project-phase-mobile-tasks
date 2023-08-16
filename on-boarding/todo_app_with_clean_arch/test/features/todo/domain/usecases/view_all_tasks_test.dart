@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
-import 'package:todo_app_with_clean_arch/features/todo/domain/entities/task.dart';
+import 'package:todo_app_with_clean_arch/features/todo/domain/entities/task_entity.dart';
 import 'package:todo_app_with_clean_arch/features/todo/domain/repositories/task_repository.dart';
 import 'package:todo_app_with_clean_arch/features/todo/domain/usecases/view_all_tasks.dart';
 

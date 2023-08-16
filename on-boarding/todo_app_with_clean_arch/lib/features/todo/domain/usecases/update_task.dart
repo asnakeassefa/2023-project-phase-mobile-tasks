@@ -4,7 +4,7 @@ import 'package:todo_app_with_clean_arch/core/usecases/usecase.dart';
 import 'package:todo_app_with_clean_arch/features/todo/domain/repositories/task_repository.dart';
 
 import '../../../../core/error/failure.dart';
-import '../entities/task.dart';
+import '../entities/task_entity.dart';
 
 class UpdateTask extends usecases<TaskEntity, Params>{
   final TaskRepository repository;
