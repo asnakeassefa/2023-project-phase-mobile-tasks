@@ -1,12 +1,21 @@
-
-
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:todo_app_with_clean_arch/core/error/failure.dart';
+import 'package:todo_app_with_clean_arch/core/platform/network_info.dart';
 import 'package:todo_app_with_clean_arch/features/todo/domain/entities/task_entity.dart';
 import 'package:todo_app_with_clean_arch/features/todo/domain/repositories/task_repository.dart';
 
-class TaskRepositoryImp extends Equatable implements TaskRepository{
+import '../datasources/todo_local_data_source.dart';
+
+class TaskRepositoryImp extends Equatable implements TaskRepository {
+  final TodoLocalDataSource todoLocalDataSource;
+  final NetworkInfo networkInfo;
+
+  const TaskRepositoryImp({
+    required this.todoLocalDataSource,
+    required this.networkInfo,
+  });
+
   @override
   Future<Either<Failure, TaskEntity>> createTask(TaskEntity task) {
     // TODO: implement createTask
@@ -18,6 +27,7 @@ class TaskRepositoryImp extends Equatable implements TaskRepository{
     // TODO: implement deleteTask
     throw UnimplementedError();
   }
+
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
@@ -27,17 +37,16 @@ class TaskRepositoryImp extends Equatable implements TaskRepository{
     // TODO: implement updateTask
     throw UnimplementedError();
   }
-  
+
   @override
   Future<Either<Failure, List<TaskEntity>>> viewAllTask() {
     // TODO: implement viewAllTask
     throw UnimplementedError();
   }
-  
+
   @override
   Future<Either<Failure, TaskEntity>> viewSpecificTask(String taskId) {
     // TODO: implement viewSpecificTask
     throw UnimplementedError();
   }
-  
 }
