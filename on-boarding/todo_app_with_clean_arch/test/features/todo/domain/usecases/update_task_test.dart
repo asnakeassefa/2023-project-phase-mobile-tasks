@@ -30,13 +30,13 @@ void main(){
 
   test("this should update the task", () async{
 
-    when(mockTaskRepository.updateTask(id)).thenAnswer((_) async => Right(task));
+    when(mockTaskRepository.updateTask(id,task)).thenAnswer((_) async => Right(task));
 
-    final result = await usecase(const Params(id: id));
+    final result = await usecase(Params(id: id, task: task));
 
     expect(result, Right(task));
 
-    verify(mockTaskRepository.updateTask(id));
+    verify(mockTaskRepository.updateTask(id,task));
     verifyNoMoreInteractions(mockTaskRepository);
   });
 

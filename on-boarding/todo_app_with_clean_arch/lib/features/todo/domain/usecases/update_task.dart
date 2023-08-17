@@ -13,17 +13,17 @@ class UpdateTask extends usecases<TaskEntity, Params>{
   
   @override
   Future<Either<Failure, TaskEntity>> call(Params params) async{
-    return await repository.updateTask(params.id);
+    return await repository.updateTask(params.id, params.task);
   }
 
 }
 
 class Params extends Equatable{
   final String id;
-
-  const Params({required this.id});
+  final TaskEntity task;
+  const Params({required this.id, required this.task});
 
   @override
-  List<Object?> get props => [id];
+  List<Object?> get props => [id,task];
   
 }
